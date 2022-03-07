@@ -83,7 +83,7 @@ h1 {
   display: flex;
   position: fixed;
   bottom: 50px;
-  transition: opacity 0.3s ease-in;
+  transition: opacity 0.1s ease-in;
 }
 
 .loader.show {
@@ -104,6 +104,10 @@ h1 {
 }
 .circle:nth-child(3) {
   animation-delay: 0.2s;
+}
+
+.hidden {
+  display: none;
 }
 
 @keyframes bounce {
