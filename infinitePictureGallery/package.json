@@ -1,0 +1,12 @@
+{
+  "name": "infinitepicturegallery",
+  "version": "1.0.0",
+  "description": "Infinte image gallery using pexels",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sunil Chauhan",
+  "license": "ISC",
+  "type": "module"
+}
