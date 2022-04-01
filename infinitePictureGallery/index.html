@@ -4,9 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="header-flex">
+                <h1 id="heading">Best Free Stock Photos In One Place</h1>
+                <div id="search-form">
+                    <input type="text" id="search" placeholder="eg. nature, wildlife, city etc. ">
+                    <button class="btn">Search</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="section-flex">
+                <h2>Trending</h2>
+                <div id="gallery">
+                    <div id="column1" class="column">
+                        
+                    </div>
+                    <div id="column2" class="column">
+                        
+                    </div>
+                    <div id="column3" class="column">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="search-flex hidden">
+                <h2>Search Results:</h2>
+                <div id="gallery">
+                    <div id="column1" class="column">
+            
+                    </div>
+                    <div id="column2" class="column">
+            
+                    </div>
+                    <div id="column3" class="column">
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="loader-section">
+        <div id="loader" class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </section>
     <script src="./app.js"></script>
 </body>
 </html>
