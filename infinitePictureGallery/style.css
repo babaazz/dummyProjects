@@ -90,21 +90,6 @@ header {
   margin-bottom: 1rem;
 }
 
-.search-flex {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 3rem;
-  padding-bottom: 100px;
-}
-
-.search-flex h2 {
-  color: #333;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
 #gallery {
   display: flex;
   flex-wrap: wrap;
@@ -213,8 +198,4 @@ img {
   50% {
     transform: translateY(-10px);
   }
-}
-
-.hidden {
-  display: none;
 }

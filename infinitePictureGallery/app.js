@@ -1,12 +1,11 @@
 const sectionFlex = document.querySelector('.section-flex');
-const searchFlex = document.querySelector('.search-flex');
-console.dir(searchFlex);
 const loader = document.getElementById('loader');
 const searchInput = document.getElementById('search');
 
+
 const API_Key = "563492ad6f91700001000001fdf16165533c43ada89059f0878c6ac4";
 let baseUrl = "https://api.pexels.com/v1/curated?per_page=30";
-let searchURL;
+let nextUrl;
 
 async function getPhotos(url, element) {
     const res = await fetch(url,{
@@ -17,8 +16,12 @@ async function getPhotos(url, element) {
         }
     });
     const data = await res.json();
-    baseUrl = data.next_page;
+    nextUrl = data.next_page;
     const photos = data.photos;
+    const heading = element.getElementById('heading');
+    if(heading.innerText === ""){
+        heading.innerText = "Trending";
+    }
     renderPhotos(photos,element);
 }
 
@@ -79,7 +82,7 @@ const debouncedLoading = debouncer(loadMore,500);
 window.addEventListener('scroll', () => {
     const {scrollTop, clientHeight, scrollHeight} = document.documentElement;
     if(scrollTop + clientHeight > scrollHeight - 20){
-        debouncedLoading(baseUrl,sectionFlex);
+            debouncedLoading(nextUrl,sectionFlex);
     }
 })
 
@@ -95,12 +98,26 @@ async function searchCall(query, element){
         }
     });
     const data = await res.json();
-    searchURL = data.next_page;
+    nextUrl = data.next_page;
     const photos = data.photos;
-    renderPhotos();
+
+    renderPhotos(photos,element);
 }
+
+const debouncedSearchCall = debouncer(searchCall,500);
 
 searchInput.addEventListener('keyup', (e) => {
     let query = e.target.value;
-    searchCall(query);
+    if(query === "") {
+        getPhotos(baseUrl,sectionFlex);
+    } else {
+        debouncedSearchCall(query,sectionFlex);
+    }
 })
+
+
+function clearElements(...elementList){
+    elementList.forEach(element => {
+        element.innerHTML = "";
+    })
+}
